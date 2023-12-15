@@ -1,0 +1,25 @@
+<!-- loading.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Processando{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="center-div">
+            <p class="texto-negrito">Buscando Reviews de Produtos...</p>
+        </div>
+
+        <div class="center-div">
+        <form id="input-form" method="get" action="/results">
+            <button class="prosseguir-botao" id="verDetalhes">Prosseguir</button>
+        </form>
+    </div>
+
+    </div>
+
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="center-div">
+            <h2 class="title-negrito">Todas as reviews</h2>
+        </div>
+        <div class="center-div">
+            <div class="card">
+                <div class="imagem-container">
+                    <div class="center-div"><p class="texto-pequeno">{{preco}}</p></div>
+                    <br>
+                    <img class="imagem-card" src="{{imagem}}">
+                </div>
+                <div class="texto-container">
+                    <a class="link-card" href="{{caminho}}">
+                        {{titulo}}
+                    </a>
+
+                    <div class="caixa-reviews">
+                        <div class="analise-sentimentos">
+                            <div class="center-div">
+                                <div class="bullet-verde"></div>
+                            </div>
+                            <div class="review-sentiment"><p class="numero-analises">Análises positivas</p></div>
+                        </div>
+                        <div class="analise-sentimentos">
+                            <div class="center-div">
+                                <div class="bullet-cinza"></div>
+                            </div>
+                            <div class="review-sentiment"><p class="numero-analises">Análises neutras</p></div>
+                        </div>
+                            <div class="analise-sentimentos">
+                                <div class="center-div">
+                                    <div class="bullet-vermelho"></div>
+                                </div>
+                                    <div class="review-sentiment"><p class="numero-analises">Análises negativas</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br><br><br>
+
+
+        {% for row in rows %}
+
+        {% if row[2] == "Positivo" %}
+
+        <div class="center-div">
+            <div class="card">
+                <div class="bola-container">
+                     <div class="center-div">
+                        <div class="bola-verde"></div>
+                     </div>
+                    <p class="tipo-analises">Review Positiva</p>
+                    <br>
+                    <p class="detalhe-analises">Positivo: {{row[5]}}</p>
+                    <p class="detalhe-analises">Neutro: {{row[4]}}</p>
+                    <p class="detalhe-analises">Negativo: {{row[3]}}</p>
+                </div>
+                <div class="texto-container">
+
+                    <div class="link-card">
+                        <p>{{row[0]}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {% elif row[2] == "Negativo" %}
+
+        <div class="center-div">
+            <div class="card">
+                <div class="bola-container">
+                     <div class="center-div">
+                        <div class="bola-vermelho"></div>
+                     </div>
+                    <p class="tipo-analises">Review Negativa</p>
+                    <br>
+                    <p class="detalhe-analises">Positivo: {{row[5]}}</p>
+                    <p class="detalhe-analises">Neutro: {{row[4]}}</p>
+                    <p class="detalhe-analises">Negativo: {{row[3]}}</p>
+                </div>
+                <div class="texto-container">
+
+                    <div class="link-card">
+                        <p>{{row[0]}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {% elif row[2] == "Neutro" %}
+
+        <div class="center-div">
+            <div class="card">
+                <div class="bola-container">
+                     <div class="center-div">
+                        <div class="bola-cinza"></div>
+                     </div>
+                    <p class="tipo-analises">Review Neutra</p>
+                    <br>
+                    <p class="detalhe-analises">Positivo: {{row[5]}}</p>
+                    <p class="detalhe-analises">Neutro: {{row[4]}}</p>
+                    <p class="detalhe-analises">Negativo: {{row[3]}}</p>
+                </div>
+                <div class="texto-container">
+
+                    <div class="link-card">
+                        <p>{{row[0]}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+    <br><br><br>
+
+    {% endfor %}
+
+
+        
+    <br><br><br>
+
+{% endblock %}

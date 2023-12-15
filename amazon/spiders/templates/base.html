@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}Sistema de Análise de Sentimento{% endblock %}</title>
+</head>
+<body class="body">
+    <div class="header">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='img/sabichao_logo.svg') }}" alt="Imagem" class="logo">
+        </a>
+        <div class="header-right">
+            <form id="input-form" method="post" action="/">
+                <input type="text" id="productName" name="productName" class="custom-input" oninput="enviarParaPython()">
+                <input id="enviarBtn" type="image" onclick="enviarParaPython()" src="{{ url_for('static', filename='img/icone-busca.svg') }}" alt="Search Icon" class="icon" />
+            </form>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

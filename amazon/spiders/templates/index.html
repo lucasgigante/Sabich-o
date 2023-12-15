@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="flex-container">
+
+  <div class="flex-child">
+    <img src="{{ url_for('static', filename='img/ai-image.svg') }}" alt="Imagem" class="ai-image">
+  </div>
+
+  <div class="flex-child">
+    <h2 class="titulo-main">Como<br/>Funciona?</h2>
+    <p class="paragrafo">Você só precisa colocar o nome  do produto que deseja para obter a opinião de consumidores.
+      <br/><br/>Nós facilitamos sua busca analisando as reviews de outras pessoas com nossa IA.
+      <br/><br/>Trazemos as opiniões de vários locais para que você compre com segurança.</p>
+  </div>
+
+</div>
+{% endblock %}

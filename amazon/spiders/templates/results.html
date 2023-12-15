@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+
+    <div class="center-div">
+            <h2 class="title-negrito">Resultados da Busca</h2>
+    </div>
+
+    <div class="content">
+
+        {% for row in rows %}
+        <div class="center-div">
+
+            <div class="card">
+
+                    <div class="imagem-container">
+                        <img class="imagem-card" src="{{row[0]}}">
+                    </div>
+
+                    <div class="texto-container">
+                            <a class="link-card" href="{{row[1]}}">
+                                {{row[2]}}
+                            </a>
+                            <div class="container-detalhes">
+                                <form method="post" action="/results">
+                                    <button class="detalhes-botao" name="input-form" id="input-form" onclick="reviewsScrape()" value="{{row[4]}}">Ver detalhes</button>
+                                    <input name="thumb" type="hidden" value="{{row[0]}}"></input>
+                                    <input name="url" type="hidden" value="{{row[1]}}"></input>
+                                    <input name="title" type="hidden" value="{{row[2]}}"></input>
+                                    <input name="price" type="hidden" value="{{row[3]}}"></input>
+                                </form>
+                            </div>
+                    </div>
+
+            </div>
+
+            <br><br><br>
+
+
+        </div>
+
+        <br><br><br>
+
+        {% endfor %}
+
+    </div>
+
+
+
+{% endblock %}
